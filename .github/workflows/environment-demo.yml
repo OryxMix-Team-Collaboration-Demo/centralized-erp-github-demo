@@ -1,0 +1,25 @@
+name: Environment Deployment Demo
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    env:
+      DEPLOYMENT_URL: ${{ vars.DEPLOYMENT_URL }}
+      DEPLOYMENT_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}
+
+    steps:
+      - name: Validate deployment configuration
+        shell: bash
+        run: |
+          test -n "$DEPLOYMENT_URL"
+          test -n "$DEPLOYMENT_TOKEN"
+          echo "Production configuration is available."
+          echo "Deployment target: $DEPLOYMENT_URL"
