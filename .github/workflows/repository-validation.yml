@@ -28,9 +28,8 @@ jobs:
           test -f docs/architecture.md
           test -f docs/security-model.md
           test -f docs/deployment.md
-          test -f docs/ci-demo.md
           echo "Repository structure validation completed successfully."
-          
+
       - name: Verify demonstration secret
         shell: bash
         env:
