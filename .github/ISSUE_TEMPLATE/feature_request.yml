@@ -1,0 +1,86 @@
+name: ERP Feature Request
+description: Request a new feature or improvement for the ERP application.
+title: "[Feature]: "
+labels:
+  - enhancement
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide the information required to evaluate and implement this feature.
+
+  - type: input
+    id: module
+    attributes:
+      label: ERP Module
+      description: Enter the module affected by this request.
+      placeholder: "Example: Supplier Management"
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirement
+    attributes:
+      label: Business Requirement
+      description: Explain what the business needs.
+      placeholder: "Describe the required feature and its purpose."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Define the conditions that must be satisfied.
+      placeholder: |
+        - Authorized users can create a supplier.
+        - Required fields must be validated.
+        - Duplicate supplier codes must be rejected.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Select the business priority.
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: dropdown
+    id: application
+    attributes:
+      label: Application Area
+      options:
+        - Backend
+        - Frontend
+        - Database
+        - Mobile Application
+        - Full Stack
+        - Infrastructure
+    validations:
+      required: true
+
+  - type: textarea
+    id: security
+    attributes:
+      label: Security and Permission Requirements
+      description: Mention the roles and permissions required.
+      placeholder: "Example: Only Admin and Procurement Manager can access this feature."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I confirm that the requirement and acceptance criteria are clearly described.
+          required: true
