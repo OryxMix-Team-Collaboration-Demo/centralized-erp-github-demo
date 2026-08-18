@@ -29,3 +29,15 @@ jobs:
           test -f docs/security-model.md
           test -f docs/deployment.md
           echo "Repository structure validation completed successfully."
+
+      - name: Verify demonstration secret
+        shell: bash
+        env:
+          DEMO_API_KEY: ${{ secrets.DEMO_API_KEY }}
+        run: |
+          if [ -z "$DEMO_API_KEY" ]; then
+            echo "DEMO_API_KEY is not configured."
+            exit 1
+          fi
+
+          echo "The demonstration secret is configured."
